@@ -14,6 +14,10 @@ export default class Box extends Component {
     this.restProps = Props.omit(props, Object.keys(Box.propTypes));
   }
 
+  componentWillReceiveProps(nextProps) {
+    this.restProps = Props.omit(nextProps, Object.keys(Box.propTypes));
+  }
+
   componentDidMount () {
     if (this.props.onClick) {
       let clickCallback = function () {
